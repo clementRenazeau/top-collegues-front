@@ -2,11 +2,13 @@ import { Component, OnInit, Input,EventEmitter, Output } from '@angular/core';
 import {Collegue, Vote} from '../models';
 import { Avis } from "../models";
 import { CollegueService } from '../services/collegue.service';
+
 @Component({
   selector: 'app-collegue-component',
   templateUrl: './collegue-component.component.html',
   styleUrls: ['./collegue-component.component.css']
 })
+
 export class CollegueComponentComponent implements OnInit {
   @Input() collegue:Collegue;
   constructor(private _collegueServ:CollegueService) {}
@@ -20,15 +22,10 @@ export class CollegueComponentComponent implements OnInit {
     this._collegueServ.donnerUnAvis(this.collegue, $event)
     .then(coll=> {
       this.collegue = coll;
-      this.vote.emit(new Vote(new Collegue(this.collegue.pseudo, this.collegue.image, this.collegue.score), $event))
+      this.vote.emit(new Vote(new Collegue(this.collegue.pseudo,
+        this.collegue.image, this.collegue.score), $event))
 
     });
-    if($event==0){
-      this.collegue.score +=10;
-    }
-    else{
-      this.collegue.score -=5;
-    }
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Avis, Collegue} from '../models';
+import { CollegueService } from '../services/collegue.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-accueil-component',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponentComponent implements OnInit {
 
-  constructor() { }
+  desCollegues:Collegue[];
+  constructor(private _collegueServ : CollegueService) { }
 
   ngOnInit() {
+    this._collegueServ.listerCollegues()
+    .then(cols => this.desCollegues =cols)
+    .catch(err =>console.log(err));
   }
-
 }
