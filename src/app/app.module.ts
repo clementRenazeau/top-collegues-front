@@ -9,6 +9,7 @@ import { CollegueComponentComponent } from './collegue-component/collegue-compon
 import { ListeColleguesComponentComponent } from './liste-collegues-component/liste-collegues-component.component';
 import { HistoriqueVotesComponentComponent } from './historique-votes-component/historique-votes-component.component';
 import { AccueilComponentComponent } from './accueil-component/accueil-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AccueilComponentComponent } from './accueil-component/accueil-component
     AccueilComponentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
