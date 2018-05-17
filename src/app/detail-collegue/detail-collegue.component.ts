@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class DetailCollegueComponent implements OnInit {
   pseudo:string;
-  collegue:Collegue = new Collegue(null, null, null);
+  collegue:Collegue = new Collegue(null, null, null, null, null, null, null);
   @Output() vote:EventEmitter<Vote> = new EventEmitter<Vote>();
 
   constructor(private route: ActivatedRoute, private _collServ: CollegueService) {
@@ -29,8 +29,7 @@ export class DetailCollegueComponent implements OnInit {
     this._collServ.donnerUnAvis(this.collegue, $event)
     .then(col=> {
       this.collegue = col;
-      this.vote.emit(new Vote(new Collegue(this.collegue.pseudo,
-        this.collegue.image, this.collegue.score), $event))
+      this.vote.emit(new Vote(this.collegue, $event))
 
     });
   }

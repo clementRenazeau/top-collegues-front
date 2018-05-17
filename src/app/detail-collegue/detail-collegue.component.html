@@ -1,5 +1,8 @@
 <img src={{collegue.image}} alt="profil"/>
-<h3>pseudo : {{collegue.pseudo}}</h3>
-<p>compteur : {{collegue.score}}</p>
+<h3>pseudo : {{collegue.pseudo| uppercase}}</h3>
+<h3>nom : {{collegue.nom}}</h3>
+<h3>prenom : {{collegue.prenom}}</h3>
+<h3>adresse : {{collegue.adresse}}</h3>
+<p class="card-text" [innerHTML]="'Score :'+ (collegue.score | pipeScore)"></p>
 <app-avis-component (change)="onClick($event)"></app-avis-component>
 <app-menu></app-menu>

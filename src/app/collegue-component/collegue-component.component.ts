@@ -22,8 +22,7 @@ export class CollegueComponentComponent implements OnInit {
     this._collegueServ.donnerUnAvis(this.collegue, $event)
     .then(coll=> {
       this.collegue = coll;
-      this.vote.emit(new Vote(new Collegue(this.collegue.pseudo,
-        this.collegue.image, this.collegue.score), $event))
+      this.vote.emit(new Vote(this.collegue, $event))
 
     });
   }

@@ -1,5 +1,11 @@
+<h2>La liste des collegues</h2>
+<button>Rafraichir la liste</button>
+<div class="container">  <!-- définition d'un lien basé sur les routes. -->
+  <a routerLink="/collegues/nouveau">Ajouter un collegue</a>
+</div>
 <ul>
   <li *ngFor="let coll of collegues">
     <app-collegue-component [collegue]="coll"></app-collegue-component>
   </li>
 </ul>
+

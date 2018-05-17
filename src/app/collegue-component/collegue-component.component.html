@@ -1,5 +1,6 @@
-<img src={{collegue.image}} alt="profil"/>
-<h3><a routerLink="/collegues/{{collegue.pseudo}}" >pseudo : {{collegue.pseudo}}</a></h3>
-<p>compteur : {{collegue.score}}</p>
-<app-avis-component (change)="onClick($event)"></app-avis-component>
-
+<div>
+  <img src={{collegue.image}} alt="profil"/>
+  <h3><a routerLink="/collegues/{{collegue.pseudo}}" >pseudo : {{collegue.pseudo | uppercase}}</a></h3>
+  <p class="card-text" [innerHTML]="'Score :'+ (collegue.score | pipeScore)"></p>
+  <app-avis-component (change)="onClick($event)"></app-avis-component>
+</div>

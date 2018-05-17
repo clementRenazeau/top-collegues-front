@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Nouveau Collegue</h3>
+  <form (ngSubmit)="submit()" #AjouterUnCollegue="ngForm">
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Matricule*</div>
+      </div>
+      <input type="text" class="form-control" name="matricule" [(ngModel)]="collegue.matricule" #matricule="ngModel" required>
+      <div *ngIf="matricule.dirty  && matricule.invalid">Champ obligatoire</div>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Pseudo*</div>
+      </div>
+      <input type="text" class="form-control" name="pseudo" [(ngModel)]="collegue.pseudo" #pseudo="ngModel" required minlength="2">
+      <div *ngIf="pseudo.dirty  && pseudo.invalid">Champ obligatoire qui doit comporter au moins 2 caracteres</div>
+    </div>
+    <div class="container">
+      <div class="input-group-prepend">
+        <div class="input-group-text">URL image</div>
+      </div>
+      <input type="text" class="form-control" name="image" [(ngModel)]="collegue.image" #image="ngModel">
+    </div>
+    <div class="col-auto">
+      <button type="submit" [disabled]="!AjouterUnCollegue.valid"class="btn btn-primary mb-2">Submit</button>
+    </div>
+  </form>
+  <app-menu></app-menu>
+</div>

@@ -13,13 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
-
+import { PipeScorePipe } from './pipe-score.pipe';
+import { AjouterUnCollegueComponent } from './ajouter-un-collegue/ajouter-un-collegue.component';
+import { FormsModule }   from '@angular/forms';
 
 const appRoutes: Routes = [
 
   { path: 'accueil', component: AccueilComponentComponent }, // /page1 affiche le composant A
 
   { path: 'demo', component: DemoComponent }, // /page2 affiche le composant B
+
+  { path: 'collegues/nouveau', component: AjouterUnCollegueComponent},
 
   { path: 'collegues/:pseudo',  component: DetailCollegueComponent },
 
@@ -40,12 +44,15 @@ const appRoutes: Routes = [
     HistoriqueVotesComponentComponent,
     AccueilComponentComponent,
     MenuComponent,
-    DetailCollegueComponent
+    DetailCollegueComponent,
+    PipeScorePipe,
+    AjouterUnCollegueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
